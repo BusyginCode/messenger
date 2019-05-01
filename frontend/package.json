@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "postinstall": "yarn build:libs",
-    "precommit": "yarn test:changed && yarn lint-staged",
+    "precommit": "lint-staged",
     "postcommit": "git update-index --again",
     "prepush": "run-p test:changed-since lint",
     "test": "cross-env jest --config=config/jest/jest.config.js",
@@ -142,10 +142,6 @@
     "write-file-atomic": "2.4.1"
   },
   "lint-staged": {
-    "*.{svg,png,jpg,jpeg}": [
-      "node ./scripts/imagemin/index.js",
-      "git add"
-    ],
     "*.js": [
       "eslint --fix",
       "git add"
