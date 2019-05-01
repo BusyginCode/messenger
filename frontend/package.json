@@ -7,7 +7,6 @@
     "postinstall": "yarn build:libs",
     "precommit": "lint-staged",
     "postcommit": "git update-index --again",
-    "prepush": "run-p test:changed-since lint",
     "test": "cross-env jest --config=config/jest/jest.config.js",
     "lint": "run-p lint:js lint:scss",
     "lint:js": "eslint .storybook packages src",
