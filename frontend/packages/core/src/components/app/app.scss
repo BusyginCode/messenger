@@ -1,0 +1,22 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  color: var(--b-color-body1);
+  min-width: 1200px;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+}

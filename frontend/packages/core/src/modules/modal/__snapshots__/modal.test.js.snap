@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`auth reducer should reduce close correctly 1`] = `Object {}`;
+
+exports[`auth reducer should reduce initialState correctly 1`] = `Object {}`;
+
+exports[`auth reducer should reduce open correctly 1`] = `
+Object {
+  "MODAL": Object {
+    "name": "MODAL",
+    "props": Object {},
+  },
+}
+`;
+
+exports[`modal actions should close correctly 1`] = `
+Object {
+  "payload": "MODAL",
+  "type": "MODAL_CLOSE",
+}
+`;
+
+exports[`modal actions should open correctly 1`] = `
+Object {
+  "payload": Object {
+    "modalProps": Object {},
+    "name": "MODAL",
+    "props": Object {},
+  },
+  "type": "MODAL_OPEN",
+}
+`;

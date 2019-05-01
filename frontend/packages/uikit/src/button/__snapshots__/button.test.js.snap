@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Button should renders correctly 1`] = `
+<button
+  class="button primary m navigational"
+  type="button"
+>
+  <span
+    class="box iconLeft"
+  >
+    <span />
+  </span>
+</button>
+`;
+
+exports[`uikit/Button should renders correctly with component 1`] = `
+<a
+  class="button primary m navigational"
+>
+  <span
+    class="box iconRight"
+  >
+    <span />
+  </span>
+</a>
+`;

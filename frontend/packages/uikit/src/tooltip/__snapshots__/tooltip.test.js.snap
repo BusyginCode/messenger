@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Tooltip should render correctly 1`] = `
+<Tooltip
+  align={Object {}}
+  arrowContent={null}
+  className="tooltip"
+  destroyTooltipOnHide={false}
+  id={1}
+  mouseEnterDelay={0}
+  mouseLeaveDelay={0.1}
+  onPopupAlign={[Function]}
+  onVisibleChange={[Function]}
+  placement="right"
+  prefixCls="dt-tooltip"
+  trigger={
+    Array [
+      "hover",
+    ]
+  }
+>
+  <ChildWrapper
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={Object {}}
+  />
+</Tooltip>
+`;

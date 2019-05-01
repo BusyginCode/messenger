@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/InputNumber should render correctly 1`] = `
+<Input
+  intent="default"
+  size="l"
+  type="number"
+  value={1}
+/>
+`;

@@ -1,0 +1,14 @@
+{
+  "name": "@messenger/testing",
+  "version": "2.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "echo dev",
+    "build": "echo build",
+    "clean": "echo clean"
+  },
+  "dependencies": {
+    "@messenger/core": "^2.0.0"
+  },
+  "gitHead": "e82a3a1ba46f7ab3f407c9562ac4b63ab49809cb"
+}

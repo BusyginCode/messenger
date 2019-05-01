@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/progress-indicator should render correctly 1`] = `
+<Box
+  align="center"
+  component="div"
+  flexGrow={1}
+  justify="center"
+  padding="s"
+>
+  <Svg(preloader)
+    className="icon"
+  />
+</Box>
+`;

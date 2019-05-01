@@ -1,0 +1,187 @@
+.general {
+  word-break: break-word;
+  font-weight: var(--b-font-weight-regular);
+}
+
+.primary {
+  color: var(--b-color-body1);
+}
+
+.white {
+  color: var(--b-color-body6);
+}
+
+.xxs {
+  font-size: var(--b-font-size-xxs);
+  line-height: var(--b-line-height-xxs);
+}
+
+.xs {
+  font-size: var(--b-font-size-xs);
+  line-height: var(--b-line-height-l);
+}
+
+.s {
+  font-size: var(--b-font-size-s);
+  line-height: var(--b-line-height-l);
+}
+
+.m {
+  font-size: var(--b-font-size-m);
+  line-height: var(--b-line-height-xxl);
+}
+
+.l {
+  font-size: var(--b-font-size-l);
+  line-height: var(--b-line-height-xxl);
+}
+
+.xl {
+  font-size: var(--b-font-size-xl);
+  line-height: var(--b-line-height-xxl);
+}
+
+.xxl {
+  font-size: var(--b-font-size-xxl);
+  line-height: var(--b-font-size-xxl);
+}
+
+.xxxl {
+  font-size: var(--b-font-size-xxxl);
+  line-height: var(--b-font-size-xxxl);
+}
+
+.xxxxl {
+  font-size: var(--b-font-size-xxxxl);
+  line-height: var(--b-font-size-xxxxl);
+}
+
+.xxxxxl {
+  font-size: var(--b-font-size-xxxxxl);
+  line-height: var(--b-font-size-xxxxxl);
+}
+
+/* line-heights */
+
+.l_xxs {
+  line-height: var(--b-line-height-xxs);
+}
+
+.l_xs {
+  line-height: var(--b-line-height-xs);
+}
+
+.l_s {
+  line-height: var(--b-line-height-s);
+}
+
+.l_m {
+  line-height: var(--b-line-height-m);
+}
+
+.l_l {
+  line-height: var(--b-line-height-l);
+}
+
+.l_xl {
+  line-height: var(--b-line-height-xl);
+}
+
+.l_xxl {
+  line-height: var(--b-font-size-xxl);
+}
+
+.l_xxxl {
+  line-height: var(--b-font-size-xxxl);
+}
+
+.l_xxxxl {
+  line-height: var(--b-font-size-xxxxl);
+}
+
+.l_xxxxxl {
+  line-height: var(--b-font-size-xxxxxl);
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.semibold {
+  font-weight: var(--b-font-weight-semibold);
+}
+
+.bold {
+  font-weight: var(--b-font-weight-bold);
+}
+
+.base {
+  font-family: var(--b-font-family-base);
+}
+
+.condensed {
+  font-family: var(--b-font-family-condensed);
+}
+
+.ellipsis {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+.keep-all {
+  word-break: keep-all;
+}
+
+.normal {
+  word-break: normal;
+}

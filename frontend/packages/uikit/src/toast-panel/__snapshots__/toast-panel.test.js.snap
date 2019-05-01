@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToastPanel renders list of toasts 1`] = `
+<div
+  className="toastPanel"
+>
+  <CSSTransitionGroup
+    transitionAppear={true}
+    transitionAppearTimeout={240}
+    transitionEnter={true}
+    transitionEnterTimeout={240}
+    transitionLeave={true}
+    transitionLeaveTimeout={200}
+    transitionName={null}
+  >
+    <Toast
+      className="toast"
+      content="Test message 1"
+      icon={<svg />}
+      id="1"
+      intent="success"
+      key="1"
+    />
+    <Toast
+      className="toast"
+      content="Test message 2"
+      icon={<svg />}
+      id="2"
+      intent="warning"
+      key="2"
+    />
+  </CSSTransitionGroup>
+</div>
+`;
+
+exports[`ToastPanel renders without toasts 1`] = `
+<div
+  className="toastPanel"
+>
+  <CSSTransitionGroup
+    transitionAppear={true}
+    transitionAppearTimeout={240}
+    transitionEnter={true}
+    transitionEnterTimeout={240}
+    transitionLeave={true}
+    transitionLeaveTimeout={200}
+    transitionName={null}
+  />
+</div>
+`;

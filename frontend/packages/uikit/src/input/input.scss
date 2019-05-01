@@ -1,0 +1,144 @@
+.input {
+  width: 100%;
+
+  .size-l & {
+    height: var(--b-size-l);
+    line-height: var(--b-line-height-xxl);
+  }
+
+  .size-m & {
+    height: var(--b-size-m);
+    font-size: var(--b-font-size-s);
+    line-height: var(--b-line-height-l);
+  }
+
+  border: var(--b-border-width-l) solid;
+  border-radius: var(--b-border-radius-s);
+  background-color: var(--b-color-body6);
+  padding: calc(var(--b-spacing-s) - var(--b-border-width-l)) calc(var(--b-spacing-m) - var(--b-border-width-l));
+  outline: none;
+
+  &[disabled] {
+    background-color: var(--b-color-body5);
+    opacity: 0.3;
+  }
+
+  &::placeholder {
+    color: var(--b-color-body3);
+  }
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.default {
+  border-color: var(--b-color-body4);
+}
+
+.default:hover:not([disabled]),
+.default:focus:not([disabled]),
+.default:active:not([disabled]) {
+  border-color: var(--b-color-nav);
+}
+
+.success,
+.success:focus:not([disabled]),
+.success:active:not([disabled]) {
+  background-color: var(--b-color-succ3);
+  border-color: var(--b-color-succ);
+}
+
+.warning,
+.warning:focus:not([disabled]),
+.warning:active:not([disabled]) {
+  border-color: var(--b-color-warn);
+}
+
+.danger,
+.danger:focus:not([disabled]),
+.danger:active:not([disabled]) {
+  background-color: var(--b-color-dang3);
+  border-color: var(--b-color-dang);
+}
+
+.clearEl {
+  position: absolute;
+  cursor: pointer;
+  height: var(--b-line-height-l);
+  right: var(--b-spacing-m);
+  top: var(--b-spacing-s);
+
+  .size-l & {
+    top: calc(var(--b-spacing-m) - var(--b-spacing-xs));
+  }
+
+  svg {
+    color: var(--b-color-body3);
+  }
+}
+
+.hasIcon {
+  &.iconPosition-left {
+    input {
+      padding-left: 38px;
+    }
+
+    .iconEl {
+      left: 16px;
+    }
+  }
+
+  &.iconPosition-right {
+    input {
+      padding-right: 38px;
+    }
+
+    .iconEl {
+      right: 16px;
+    }
+  }
+
+  .iconEl {
+    position: absolute;
+    height: var(--b-line-height-l);
+    top: 12px;
+
+    svg {
+      color: var(--b-color-body3);
+    }
+  }
+
+  .iconIntent-success svg {
+    color: var(--b-color-succ);
+  }
+
+  .iconIntent-danger svg {
+    color: var(--b-color-dang);
+  }
+
+  &.size-m {
+    .iconEl {
+      top: var(--b-spacing-s);
+      left: var(--b-spacing-s);
+    }
+
+    input {
+      padding-left: var(--b-spacing-l);
+    }
+  }
+}
+
+.premium {
+  border-color: var(--b-color-prem);
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:not([disabled]) {
+      border-color: var(--b-color-prem);
+      box-shadow: var(--b-shadow-premium);
+    }
+  }
+}

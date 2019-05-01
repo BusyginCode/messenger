@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/InfiniteScroll should renders correctly 1`] = `
+<Fragment>
+  <CustomScroll
+    onScroll={[Function]}
+    style={
+      Object {
+        "maxHeight": 100,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 200,
+        }
+      }
+    />
+  </CustomScroll>
+</Fragment>
+`;

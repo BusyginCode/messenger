@@ -1,0 +1,47 @@
+.divider {
+  width: 100%;
+
+  &.vertical {
+    height: 100%;
+  }
+}
+
+.xs {
+  height: 1px;
+
+  &.vertical {
+    width: 1px;
+  }
+}
+
+.s {
+  height: 2px;
+
+  &.vertical {
+    width: 2px;
+  }
+}
+
+.m {
+  height: 4px;
+
+  &.vertical {
+    width: 4px;
+  }
+}
+
+.default {
+  background-color: var(--b-color-body5);
+}
+
+.hot {
+  background-color: var(--b-color-hot);
+}
+
+.primary {
+  background-color: var(--b-color-body4);
+}
+
+.light {
+  background-color: var(--b-color-body7);
+}

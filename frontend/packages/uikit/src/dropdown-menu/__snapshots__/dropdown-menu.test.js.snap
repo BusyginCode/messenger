@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/DropdownMenu should render correctly with custom trigger 1`] = `
+<Dropdown
+  onVisibleChange={[Function]}
+  options={
+    Array [
+      Object {
+        "component": [Function],
+        "id": 1,
+      },
+      Object {
+        "component": [Function],
+        "id": 2,
+      },
+    ]
+  }
+  overlayClassName="overlay topLeft"
+  placement="topLeft"
+  trigger={
+    Array [
+      "click",
+    ]
+  }
+  visible={false}
+>
+  <button>
+    ...
+  </button>
+</Dropdown>
+`;

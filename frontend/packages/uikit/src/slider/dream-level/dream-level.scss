@@ -1,0 +1,25 @@
+.general {
+  position: relative;
+  height: 56px;
+}
+
+.block {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 72px;
+  background-repeat: no-repeat;
+  background-position: 0 center;
+}
+
+.gradient {
+  &.s {
+    background-image: url('./img/dreamway-gradient.svg');
+  }
+}
+
+.substrate {
+  &.s {
+    background-image: url('./img/dreamway-gray.svg');
+  }
+}

@@ -1,0 +1,23 @@
+.general {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: var(--b-color-body6);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--b-color-body3);
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--b-color-body4);
+  }
+}

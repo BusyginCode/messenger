@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Toast renders content as a text with success intent 1`] = `
+<div
+  className="toast success"
+  data-role="toast-success"
+>
+  <div
+    className="fn-iconContainer iconContainer"
+  >
+    <svg />
+  </div>
+  <div
+    className="content"
+  >
+    Simple text
+  </div>
+  <Svg(close)
+    className="close"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`uikit/Toast renders toast with warning intent 1`] = `
+<div
+  className="toast warning"
+  data-role="toast-warning"
+>
+  <div
+    className="fn-iconContainer iconContainer"
+  >
+    <svg />
+  </div>
+  <div
+    className="content"
+  >
+    Simple text
+  </div>
+  <Svg(close)
+    className="close"
+    onClick={[Function]}
+  />
+</div>
+`;

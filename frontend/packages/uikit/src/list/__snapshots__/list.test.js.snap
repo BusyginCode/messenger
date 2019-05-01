@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/List should render correctly 1`] = `
+<Box
+  component="div"
+  direction="column"
+>
+  <ListItem
+    iconMargin="m"
+    key="0"
+    marginBottom="s"
+  >
+    <Text
+      align="left"
+      component="p"
+      size="m"
+      typeface="base"
+    >
+      Custom config Icon 1
+    </Text>
+  </ListItem>
+  <ListItem
+    iconMargin="m"
+    key="1"
+    marginBottom="s"
+  >
+    <Text
+      align="left"
+      component="p"
+      size="m"
+      typeface="base"
+    >
+      Custom config Icon 2
+    </Text>
+  </ListItem>
+</Box>
+`;

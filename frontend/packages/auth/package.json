@@ -1,0 +1,17 @@
+{
+  "name": "@messenger/auth",
+  "version": "2.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "yarn build --quiet --watch",
+    "build": "cross-env NODE_ENV=development babel src --out-dir lib --copy-files --ignore **/*.stories.js,**/*.fixtures.js,**/*.test.js",
+    "clean": "rimraf lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "cross-env": "^5.1.4"
+  },
+  "gitHead": "e82a3a1ba46f7ab3f407c9562ac4b63ab49809cb"
+}

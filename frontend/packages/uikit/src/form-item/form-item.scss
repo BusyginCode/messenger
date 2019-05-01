@@ -1,0 +1,52 @@
+.formItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // cursor: pointer;
+
+  & + & {
+    margin-top: var(--b-spacing-ms);
+  }
+
+  &.row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.message {
+  margin-top: var(--b-spacing-xs);
+  font-size: var(--b-font-size-s);
+  line-height: var(--b-line-height-l);
+  color: var(--b-color-body2);
+
+  .danger & {
+    color: var(--b-color-dang);
+  }
+
+  .success & {
+    color: var(--b-color-succ);
+  }
+}
+
+.label {
+  margin-bottom: var(--b-spacing-s);
+  display: flex;
+  align-items: center;
+
+  .xl & {
+    margin-bottom: var(--b-font-size-m);
+  }
+
+  img,
+  svg {
+    vertical-align: top;
+    margin-left: var(--b-spacing-s);
+    color: var(--b-color-body2);
+  }
+}
+
+.labelRight {
+  color: var(--b-color-body1);
+  margin: 0 0 0 12px;
+}

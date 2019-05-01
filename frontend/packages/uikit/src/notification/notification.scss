@@ -1,0 +1,23 @@
+.general {
+  cursor: pointer;
+  border-bottom: var(--b-border-width-m) solid var(--b-color-body4);
+
+  &.default {
+    background-color: var(--b-color-nav3);
+
+    &.isRead {
+      background-color: var(--b-color-body6);
+    }
+  }
+
+  &.system {
+    background-color: var(--b-color-body);
+    color: var(--b-color-nav0);
+    cursor: default;
+    border-bottom: var(--b-border-width-m) solid var(--b-color-body1);
+  }
+}
+
+.subIcon {
+  color: var(--b-color-body3);
+}

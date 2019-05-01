@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/InputDateTime should render correctly 1`] = `
+<Box
+  component="div"
+>
+  <Component
+    className="datepicker"
+    closeOnSelect={true}
+    closeOnTab={true}
+    dateFormat={true}
+    defaultValue=""
+    input={true}
+    inputProps={Object {}}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onViewModeChange={[Function]}
+    renderInput={[Function]}
+    strictParsing={true}
+    timeConstraints={Object {}}
+    timeFormat={false}
+    utc={false}
+  />
+  <Svg(calendar)
+    className="icon"
+    onClick={[Function]}
+  />
+</Box>
+`;

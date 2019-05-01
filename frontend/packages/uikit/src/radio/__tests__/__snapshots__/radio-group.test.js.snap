@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/RadioGroup renders correctly 1`] = `
+<div
+  className="radioGroup inline"
+>
+  <label
+    className="radioWrapper"
+    key="val1"
+  >
+    <Radio
+      checked={true}
+      data-role="value_val_1"
+      onChange={[Function]}
+      value="val1"
+    />
+    <AText
+      breed="body"
+      className="label"
+      data-role="value_1_val1_0"
+      semibold={true}
+      size="l"
+    >
+      Value1
+    </AText>
+  </label>
+  <label
+    className="radioWrapper"
+    key="val2"
+  >
+    <Radio
+      checked={false}
+      data-role="value_val_2"
+      onChange={[Function]}
+      value="val2"
+    />
+    <AText
+      breed="body"
+      className="label"
+      data-role="value_2_val2_1"
+      semibold={false}
+      size="l"
+    >
+      Value2
+    </AText>
+  </label>
+</div>
+`;

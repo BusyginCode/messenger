@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Slider should renders correctly 1`] = `
+<div
+  class="sliderWrapper"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="prefix"
+    />
+    <div
+      class="rc-slider slider single"
+    >
+      <div
+        class="rc-slider-rail"
+        style="position:absolute;width:100%;background-color:#dbe5ee;height:8px;top:8px;border-radius:8px"
+      />
+      <div
+        class="rc-slider-track"
+        style="position:absolute;background-color:#00ccff;height:8px;top:8px;left:0%;width:30%"
+      />
+      <div
+        class="rc-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="10"
+        aria-valuemin="0"
+        aria-valuenow="3"
+        class="rc-slider-handle"
+        role="slider"
+        style="position:absolute;cursor:pointer;background:url(test-file-stub) center center / cover no-repeat;width:24px;height:24px;margin-left:-20px;border:none;border-radius:6px 18px 26px 10px;transition:left 0.05s ease;left:30%"
+        tabindex="0"
+      />
+      <div
+        class="rc-slider-mark"
+      />
+    </div>
+    <div
+      class="scale"
+    >
+      <div
+        class="scaleItem fnClass-0 active"
+        data-role="scale_item_item"
+      >
+        0
+      </div>
+      <div
+        class="scaleItem fnClass-1 active"
+        data-role="scale_item_1"
+      >
+        1
+      </div>
+      <div
+        class="scaleItem fnClass-2 active"
+        data-role="scale_item_2"
+      >
+        2
+      </div>
+      <div
+        class="scaleItem fnClass-3 active"
+        data-role="scale_item_3"
+      >
+        3
+      </div>
+      <div
+        class="scaleItem fnClass-4"
+        data-role="scale_item_4"
+      >
+        4
+      </div>
+      <div
+        class="scaleItem fnClass-5"
+        data-role="scale_item_5"
+      >
+        5
+      </div>
+      <div
+        class="scaleItem fnClass-6"
+        data-role="scale_item_6"
+      >
+        6
+      </div>
+      <div
+        class="scaleItem fnClass-7"
+        data-role="scale_item_7"
+      >
+        7
+      </div>
+      <div
+        class="scaleItem fnClass-8"
+        data-role="scale_item_8"
+      >
+        8
+      </div>
+      <div
+        class="scaleItem fnClass-9"
+        data-role="scale_item_9"
+      >
+        9
+      </div>
+      <div
+        class="scaleItem fnClass-10"
+        data-role="scale_item_10"
+      >
+        10
+      </div>
+    </div>
+  </div>
+</div>
+`;

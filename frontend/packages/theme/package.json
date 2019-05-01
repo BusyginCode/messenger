@@ -1,0 +1,9 @@
+{
+  "name": "@messenger/theme",
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "echo theme",
+    "build": "echo build",
+    "clean": "echo clean"
+  }
+}

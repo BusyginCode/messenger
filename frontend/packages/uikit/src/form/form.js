@@ -1,0 +1,22 @@
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+
+class Form extends PureComponent {
+  static propTypes = {
+    onSubmit: PropTypes.func
+  }
+
+  handleSubmit = e => {
+    const { onSubmit } = this.props
+    e.preventDefault(e)
+    if (onSubmit) {
+      onSubmit(e)
+    }
+  }
+
+  render() {
+    return <form onSubmit={this.handleSubmit}>{this.props.children}</form>
+  }
+}
+
+export default Form

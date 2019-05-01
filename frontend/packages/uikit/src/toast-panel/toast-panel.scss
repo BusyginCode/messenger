@@ -1,0 +1,49 @@
+:root {
+  --toast-width: 284px;
+  --toast-margin: 24px;
+}
+
+.toastPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1071;
+  overflow-y: hidden;
+}
+
+.toast {
+  width: var(--toast-width);
+  margin: var(--toast-margin);
+}
+
+/*
+ * Animation
+ */
+.enter,
+.appear {
+  opacity: 0;
+  right: calc(-1 * (var(--toast-width) + var(--toast-margin) * 2));
+}
+
+.enter.enterActive,
+.appear.appearActive {
+  opacity: 1;
+  right: 0;
+  transition: right 240ms ease-in-out, opacity 240ms ease-in-out;
+}
+
+.leave {
+  opacity: 1;
+  max-height: 150px;
+  margin-bottom: var(--toast-margin);
+}
+
+.leave.leaveActive {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+  transition:
+    height 200ms ease-in-out,
+    opacity 200ms ease-in-out,
+    margin-bottom 200ms ease-in-out;
+}

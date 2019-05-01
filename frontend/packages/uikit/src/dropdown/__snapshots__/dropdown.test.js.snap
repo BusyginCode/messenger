@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Dropdown should render correctly 1`] = `
+<Dropdown
+  defaultVisible={false}
+  hideAction={Array []}
+  minOverlayWidthMatchTrigger={true}
+  onVisibleChange={[Function]}
+  overlay={
+    <div>
+      overlay
+    </div>
+  }
+  overlayClassName=""
+  overlayStyle={Object {}}
+  placement="bottomLeft"
+  prefixCls="rc-dropdown"
+  showAction={Array []}
+  trigger={
+    Array [
+      "click",
+    ]
+  }
+>
+  <div>
+    trigger
+  </div>
+</Dropdown>
+`;
+
+exports[`uikit/Dropdown should render with options correctly 1`] = `
+<Dropdown
+  defaultVisible={false}
+  hideAction={Array []}
+  minOverlayWidthMatchTrigger={true}
+  onVisibleChange={[Function]}
+  overlay={
+    <Overlay
+      options={
+        Array [
+          Object {
+            "id": 1,
+          },
+        ]
+      }
+    />
+  }
+  overlayClassName=""
+  overlayStyle={Object {}}
+  placement="bottomLeft"
+  prefixCls="rc-dropdown"
+  showAction={Array []}
+  trigger={
+    Array [
+      "click",
+    ]
+  }
+>
+  <div>
+    trigger
+  </div>
+</Dropdown>
+`;

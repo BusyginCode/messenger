@@ -1,0 +1,56 @@
+.general {
+  position: relative;
+  margin: auto;
+}
+
+.modal {
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: var(--b-shadow-xxl);
+  border-radius: var(--b-border-radius-m);
+  overflow: hidden;
+
+  .header {
+    position: relative;
+    height: 64px;
+    padding: var(--b-spacing-m) var(--b-spacing-l);
+    line-height: var(--b-line-height-xxl);
+    background-color: var(--b-color-body8_drk);
+    color: var(--b-color-body6);
+  }
+}
+
+.content {
+  background-color: var(--b-color-body6);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(49, 69, 89, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+  overflow-y: scroll;
+  padding: var(--b-spacing-xl) 0 var(--b-spacing-xxl) 0;
+}
+
+.close {
+  width: var(--b-size-xs);
+  height: var(--b-size-xs);
+  position: absolute;
+  right: calc(-1 * (var(--b-size-xs) + var(--b-spacing-s)));
+  top: calc(-1 * (var(--b-size-xs) + var(--b-spacing-s)));
+  color: var(--b-color-body3);
+  cursor: pointer;
+}
+
+:global {
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
+}

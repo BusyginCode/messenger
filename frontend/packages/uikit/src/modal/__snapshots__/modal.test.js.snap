@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Modal should render correctly 1`] = `
+<Modal
+  ariaHideApp={false}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="general"
+  closeTimeoutMS={0}
+  contentLabel=""
+  isOpen={true}
+  overlayClassName="overlay"
+  overlayRef={[Function]}
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  <div
+    className="modal"
+    data-role="modal-test"
+  >
+    <div
+      className="content"
+      data-role="modal-content-test"
+    >
+      <Component
+        getOverlayRef={[Function]}
+        renderHeader={[Function]}
+      />
+    </div>
+  </div>
+  <Svg(close)
+    className="close"
+    data-role="modal-close-icon"
+  />
+</Modal>
+`;
+
+exports[`uikit/Modal should render correctly closed 1`] = `""`;
+
+exports[`uikit/Modal should render correctly isCustom 1`] = `
+<Modal
+  ariaHideApp={false}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="custom"
+  closeTimeoutMS={0}
+  contentLabel=""
+  isOpen={true}
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  Modal
+</Modal>
+`;

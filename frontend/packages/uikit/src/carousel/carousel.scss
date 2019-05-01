@@ -1,0 +1,44 @@
+:root {
+  --s-zoom: 0.8;
+  --m-zoom: 0.85;
+  --l-zoom: 0.9;
+  --xl-zoom: 0.95;
+}
+
+:global {
+  .dt_center .slick-slide {
+    transition: all 350ms ease;
+  }
+
+  .dt_center .slick-center {
+    transform: scale(1.1);
+  }
+
+  .slick-track {
+    padding: var(--b-spacing-l) 0;
+  }
+}
+
+.range_1 {
+  transform: scale(var(--xl-zoom));
+}
+
+.range_2 {
+  transform: scale(var(--l-zoom));
+}
+
+.range_3 {
+  transform: scale(var(--m-zoom));
+}
+
+.range_4 {
+  transform: scale(var(--s-zoom));
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.range_center {
+  opacity: 1;
+}

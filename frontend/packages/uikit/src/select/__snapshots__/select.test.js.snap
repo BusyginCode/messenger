@@ -1,0 +1,362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Select renders correctly 1`] = `
+<SelectTrigger
+  defaultActiveFirstOption={true}
+  dropdownClassName="dt-dropdown-undefined size-l"
+  dropdownMatchSelectWidth={true}
+  dropdownMenuStyle={
+    Object {
+      "maxHeight": 256,
+    }
+  }
+  dropdownStyle={Object {}}
+  inputValue=""
+  onDropdownVisibleChange={[Function]}
+  onMenuDeselect={[Function]}
+  onMenuSelect={[Function]}
+  onPopupFocus={[Function]}
+  options={Array []}
+  prefixCls="dt-select"
+  showAction={
+    Array [
+      "click",
+    ]
+  }
+  showSearch={false}
+  value={Array []}
+  visible={false}
+>
+  <div
+    className="dt-select-undefined size-l dt-select dt-select-enabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="dt-select-selection
+            dt-select-selection--single"
+      key="selection"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="dt-select-selection__rendered"
+      />
+      <span
+        className="dt-select-arrow"
+        key="arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</SelectTrigger>
+`;
+
+exports[`uikit/Select renders correctly with multiple 1`] = `
+<SelectTrigger
+  defaultActiveFirstOption={true}
+  dropdownClassName="dt-dropdown-undefined size-l"
+  dropdownMatchSelectWidth={true}
+  dropdownMenuStyle={
+    Object {
+      "maxHeight": 256,
+    }
+  }
+  dropdownStyle={Object {}}
+  inputValue=""
+  multiple={true}
+  onDropdownVisibleChange={[Function]}
+  onMenuDeselect={[Function]}
+  onMenuSelect={[Function]}
+  onPopupFocus={[Function]}
+  options={Array []}
+  prefixCls="dt-select"
+  showAction={
+    Array [
+      "click",
+    ]
+  }
+  showSearch={false}
+  value={Array []}
+  visible={false}
+>
+  <div
+    className="dt-select-undefined size-l dt-select-multiple dt-select dt-select-enabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="dt-select-selection
+            dt-select-selection--multiple"
+      key="selection"
+      role="combobox"
+    >
+      <div
+        className="dt-select-selection__rendered"
+      >
+        <ul>
+          <li
+            className="dt-select-search dt-select-search--inline"
+            key="__input"
+          >
+            <div
+              className="dt-select-search__field__wrap"
+            >
+              <input
+                autoComplete="off"
+                className="dt-select-search__field"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                value=""
+              />
+              <span
+                className="dt-select-search__field__mirror"
+              >
+                 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</SelectTrigger>
+`;
+
+exports[`uikit/Select renders correctly with premium 1`] = `
+<SelectTrigger
+  defaultActiveFirstOption={true}
+  dropdownClassName="dt-dropdown-undefined size-l premium"
+  dropdownMatchSelectWidth={true}
+  dropdownMenuStyle={
+    Object {
+      "maxHeight": 256,
+    }
+  }
+  dropdownStyle={Object {}}
+  inputValue=""
+  onDropdownVisibleChange={[Function]}
+  onMenuDeselect={[Function]}
+  onMenuSelect={[Function]}
+  onPopupFocus={[Function]}
+  options={Array []}
+  prefixCls="dt-select"
+  showAction={
+    Array [
+      "click",
+    ]
+  }
+  showSearch={false}
+  value={Array []}
+  visible={false}
+>
+  <div
+    className="dt-select-undefined size-l premium dt-select dt-select-enabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="dt-select-selection
+            dt-select-selection--single"
+      key="selection"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="dt-select-selection__rendered"
+      />
+      <span
+        className="dt-select-arrow"
+        key="arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</SelectTrigger>
+`;
+
+exports[`uikit/Select renders correctly with showSearch 1`] = `
+<SelectTrigger
+  defaultActiveFirstOption={true}
+  dropdownClassName="dt-dropdown-undefined size-l"
+  dropdownMatchSelectWidth={true}
+  dropdownMenuStyle={
+    Object {
+      "maxHeight": 256,
+    }
+  }
+  dropdownStyle={Object {}}
+  inputValue=""
+  onDropdownVisibleChange={[Function]}
+  onMenuDeselect={[Function]}
+  onMenuSelect={[Function]}
+  onPopupFocus={[Function]}
+  options={Array []}
+  prefixCls="dt-select"
+  showAction={
+    Array [
+      "click",
+    ]
+  }
+  showSearch={true}
+  value={Array []}
+  visible={false}
+>
+  <div
+    className="dt-select-undefined size-l dt-select-search dt-select dt-select-enabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="dt-select-selection
+            dt-select-selection--single"
+      key="selection"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="dt-select-selection__rendered"
+      >
+        <div
+          className="dt-select-search dt-select-search--inline"
+          key="input"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div
+            className="dt-select-search__field__wrap"
+          >
+            <input
+              autoComplete="off"
+              className="dt-select-search__field"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              value=""
+            />
+            <span
+              className="dt-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        className="dt-select-arrow"
+        key="arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</SelectTrigger>
+`;
+
+exports[`uikit/Select renders correctly with size 1`] = `
+<SelectTrigger
+  defaultActiveFirstOption={true}
+  dropdownClassName="dt-dropdown-undefined size-m"
+  dropdownMatchSelectWidth={true}
+  dropdownMenuStyle={
+    Object {
+      "maxHeight": 256,
+    }
+  }
+  dropdownStyle={Object {}}
+  inputValue=""
+  onDropdownVisibleChange={[Function]}
+  onMenuDeselect={[Function]}
+  onMenuSelect={[Function]}
+  onPopupFocus={[Function]}
+  options={Array []}
+  prefixCls="dt-select"
+  showAction={
+    Array [
+      "click",
+    ]
+  }
+  showSearch={false}
+  value={Array []}
+  visible={false}
+>
+  <div
+    className="dt-select-undefined size-m dt-select dt-select-enabled"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="dt-select-selection
+            dt-select-selection--single"
+      key="selection"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="dt-select-selection__rendered"
+      />
+      <span
+        className="dt-select-arrow"
+        key="arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</SelectTrigger>
+`;

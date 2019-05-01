@@ -1,0 +1,13 @@
+dist
+build
+coverage
+lib
+node_modules
+storybook-static
+translations
+*.log
+docs
+.jestcache
+
+.env.local
+git-hooks

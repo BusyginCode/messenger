@@ -1,0 +1,26 @@
+.radioGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.inline {
+    flex-direction: row;
+  }
+}
+
+.radioWrapper {
+  display: flex;
+  margin: 0;
+
+  .radioGroup.inline & {
+    margin: 0 var(--b-spacing-m) 0 0;
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  word-break: keep-all;
+  margin-left: var(--b-spacing-s);
+  cursor: pointer;
+}

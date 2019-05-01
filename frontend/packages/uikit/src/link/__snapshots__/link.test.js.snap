@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uikit/Link should render correctly 1`] = `
+<h2
+  class="className link primary disabled underlined base general m left"
+>
+  link
+</h2>
+`;

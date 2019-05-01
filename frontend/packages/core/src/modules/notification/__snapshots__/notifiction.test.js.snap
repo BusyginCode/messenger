@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`notification reducer should reduce [addNotification] correctly 1`] = `
+Object {
+  "isLoaded": false,
+  "notifications": Array [
+    Object {
+      "id": "ID",
+      "message": "message",
+      "page": true,
+      "type": "alert",
+    },
+  ],
+}
+`;
+
+exports[`notification reducer should reduce [hide] array correctly 1`] = `
+Object {
+  "notifications": Array [],
+}
+`;
+
+exports[`notification reducer should reduce [hide] correctly 1`] = `
+Object {
+  "notifications": Array [],
+}
+`;
+
+exports[`notification reducer should reduce initialState correctly 1`] = `
+Object {
+  "isLoaded": false,
+  "notifications": Array [],
+}
+`;
+
+exports[`notifications actions should add notification correctly 1`] = `
+Object {
+  "payload": Object {
+    "id": "ID",
+    "message": "message",
+    "page": true,
+    "type": "alert",
+  },
+  "type": "NOTIFICATIONS_ADD",
+}
+`;
+
+exports[`notifications actions should add notification correctly 2`] = `
+Object {
+  "notification": Object {
+    "isLoaded": false,
+    "notifications": Array [
+      Object {
+        "id": "ID",
+        "message": "message",
+        "page": true,
+        "type": "alert",
+      },
+    ],
+  },
+}
+`;
+
+exports[`notifications actions should hide correctly 1`] = `
+Object {
+  "payload": "ID",
+  "type": "NOTIFICATIONS_HIDE",
+}
+`;
+
+exports[`notifications actions should hide correctly 2`] = `
+Object {
+  "notification": Object {
+    "isLoaded": false,
+    "notifications": Array [],
+  },
+}
+`;
