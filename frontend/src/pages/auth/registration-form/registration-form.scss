@@ -1,0 +1,28 @@
+.general {
+  width: 466px;
+  margin: 0 auto;
+  padding: var(--b-spacing-xl) 0;
+
+  @media (max-width: 1136px) {
+    width: 100%;
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.preview {
+  width: 60px;
+  height: 60px;
+}
+
+.previewContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.regButton {
+  margin-left: var(--b-spacing-m);
+}

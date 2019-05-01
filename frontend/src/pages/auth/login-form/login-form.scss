@@ -1,0 +1,43 @@
+.formBack {
+  padding: var(--b-spacing-xl);
+  max-width: 600px;
+  width: 100%;
+  flex-shrink: 0;
+
+  @media (max-width: 1136px) {
+    padding: var(--b-spacing-xl) var(--b-spacing-s);
+  }
+}
+
+.general {
+  padding: 0 var(--b-spacing-m);
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+.generalForms {
+  max-width: 1136px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.form {
+  width: 100%;
+  max-width: var(--b-column-4);
+
+  .regButton {
+    margin-left: var(--b-spacing-s);
+  }
+}
+
+.withoutAcc {
+  @media (max-width: 1136px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.forgot {
+  text-align: center;
+  margin-top: var(--b-spacing-l);
+}

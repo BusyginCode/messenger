@@ -1,0 +1,12 @@
+.siderSearch {
+  border-bottom: 2px solid var(--b-color-body5);
+}
+
+.slide {
+  left: -300px;
+  animation: slide 0.3s forwards;
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}

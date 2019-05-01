@@ -1,0 +1,43 @@
+.bottomNavigation {
+  height: 64px;
+}
+
+.bottomNavigationItem {
+  cursor: pointer;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in;
+  border-top: 2px solid transparent;
+
+  & + & {
+    border-left: 2px solid var(--b-color-body5);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    // background-color: rgba(24, 144, 255, 0.1);
+    border-top: 2px solid var(--b-color-nav);
+
+    svg {
+      color: var(--b-color-nav);
+    }
+  }
+}
+
+.bottomNavigationItemActive {
+  cursor: default;
+  border-top: 2px solid var(--b-color-nav);
+
+  &:hover {
+    background-color: initial;
+  }
+
+  svg {
+    color: var(--b-color-nav);
+  }
+}

@@ -1,0 +1,22 @@
+.general {
+  padding: 0 var(--b-spacing-m);
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: url('./img/background.jpeg');
+}
+
+.zIndex {
+  z-index: 111111;
+}
+
+.title1 {
+  @media (max-width: 1136px) {
+    width: 10px;
+  }
+}
+
+.title2 {
+  @media (max-width: 1136px) {
+    display: none;
+  }
+}

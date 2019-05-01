@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`uikit/Tooltip/ChildWrapper should render correctly 1`] = `
-<span>
-  <button>
-    Press
-  </button>
-</span>
-`;

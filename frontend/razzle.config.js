@@ -127,45 +127,7 @@ module.exports = {
           inherit: true,
           devtool: false,
           entry: {
-            vendor: [
-              'react',
-              'react-dom'
-              // 'formik',
-              // 'axios',
-              // 'prop-types',
-              // 'yup',
-              // 'reselect',
-              // 'redux-connect',
-              // 'redux-actions',
-              // 'serialize-javascript',
-              // 'redux',
-              // 'react-youtube',
-              // 'react-router-dom',
-              // 'react-redux',
-              // 'react-intl',
-              // 'classnames',
-              //
-              // 'rc-select',
-              // 'rc-slider',
-              // 'rc-tooltip',
-              // 'react-slick',
-              // 'react-tabs',
-              // 'rc-checkbox',
-              // 'rc-dropdown',
-              // 'rc-menu',
-              // 'rc-rate',
-              // 'rc-switch',
-              // 'react-circular-progressbar',
-              // 'react-cropper',
-              // 'react-dropzone',
-              // 'react-modal',
-              // 'js-cookie',
-              // 'qrcode-generator',
-              // 'query-string',
-              // 'react-redux-loading-bar',
-              // 'react-recaptcha',
-              // 'react-loadable'
-            ]
+            vendor: ['react', 'react-dom', 'classnames', 'formik', 'react-intl']
           }
         })
       )

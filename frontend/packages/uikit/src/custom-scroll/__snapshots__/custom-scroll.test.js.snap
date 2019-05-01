@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`uikit/CustomScroll should render correctly 1`] = `
-<div
-  className="general"
->
-  123
-</div>
-`;

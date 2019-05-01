@@ -1,12 +1,25 @@
-import App from '@messenger/core/lib/components/app'
-import Auth from '@messenger/auth/lib/core/routes'
-import NotFound from '@messenger/core/lib/components/notfound'
+import App from 'components/app'
+import Home from 'pages/home'
+import Auth from 'pages/auth'
+import NotFound from 'pages/notfound'
+
+import AuthRedirect from 'redirects/auth-redirect'
+import composeRedirects from 'redirects/compose-redirects'
 
 export default [
   {
     component: App,
     routes: [
-      ...Auth(),
+      {
+        path: '/auth',
+        component: Auth
+      },
+      {
+        path: '/',
+        exact: true,
+        component: composeRedirects([AuthRedirect()]),
+        routes: [{ component: Home }]
+      },
       {
         component: NotFound
       }

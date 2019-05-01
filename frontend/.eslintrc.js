@@ -48,6 +48,11 @@ module.exports = {
   settings: {
     react: {
       version: '16.7'
+    },
+    'import/resolver': {
+      node: {
+        paths: ['src']
+      }
     }
-  }
+  },
 }
