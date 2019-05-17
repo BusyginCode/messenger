@@ -7,6 +7,8 @@ export const logIn = values => async ({ dispatch, client }) => {}
 
 export const logOut = () => ({ dispatch }) => {}
 
-export const register = values => async ({ dispatch, client }) => {}
+export const register = params => async ({ dispatch, client }) => {
+  client.post('/users/register', params)
+}
 
 export const refreshToken = serverRes => async ({ dispatch, getState, client }) => {}

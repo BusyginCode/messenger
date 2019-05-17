@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { intlShape, defineMessages } from 'react-intl'
-import Avatar from 'react-avatar-edit'
 import Box from 'components/uikit/box'
 import Text from 'components/uikit/text'
 import { Input, Button } from 'antd'
 import styles from './registration-form.scss'
+
+let Avatar
 
 const messages = defineMessages({
   REGISTER: {
@@ -49,14 +50,14 @@ class RegistrationForm extends PureComponent {
     onLogin: PropTypes.func
   }
 
-  state = {}
-
   onClose = () => {
-    this.setState({ preview: null })
+    const { setFieldValue } = this.props
+    setFieldValue('avatar', null)
   }
 
   onCrop = preview => {
-    this.setState({ preview })
+    const { setFieldValue } = this.props
+    setFieldValue('avatar', preview)
   }
 
   onBeforeFileLoad = elem => {
@@ -66,36 +67,60 @@ class RegistrationForm extends PureComponent {
     }
   }
 
+  onChange = type => e => {
+    const { setFieldValue } = this.props
+    setFieldValue(type, e.target.value)
+  }
+
   render() {
-    const { intl, handleSubmit, isSubmitting, onLogin } = this.props
+    const { intl, handleSubmit, isSubmitting, onLogin, values } = this.props
+
+    if (!Avatar && typeof window !== 'undefined') {
+      Avatar = require('react-avatar-edit').default
+    }
 
     return (
       <form className={styles.general} onSubmit={handleSubmit} autoComplete="off">
         <Box className={styles.formBack} justify="center">
           <Box direction="column" className={styles.form}>
             <Box bottom="m" justify="center">
-              {typeof window !== 'undefined' && (
+              {typeof window !== 'undefined' && Avatar && (
                 <Avatar
                   width={200}
                   height={200}
                   onCrop={this.onCrop}
                   onClose={this.onClose}
                   onBeforeFileLoad={this.onBeforeFileLoad}
-                  src={this.state.src}
+                  src={values.avatar}
                 />
               )}
-              {this.state.preview && (
+              {values.avatar && (
                 <Box className={styles.previewContainer} left="m" align="center">
-                  <img className={styles.preview} src={this.state.preview} alt="Preview" />
+                  <img className={styles.preview} src={values.avatar} alt="Preview" />
                 </Box>
               )}
             </Box>
-            <Input size="large" placeholder={intl.formatMessage(messages.EMAIL)} />
+            <Input
+              size="large"
+              placeholder={intl.formatMessage(messages.EMAIL)}
+              onChange={this.onChange('email')}
+              value={values.email}
+            />
             <Box top="m">
-              <Input size="large" placeholder={intl.formatMessage(messages.NAME)} />
+              <Input
+                size="large"
+                placeholder={intl.formatMessage(messages.NAME)}
+                onChange={this.onChange('nickname')}
+                value={values.nickname}
+              />
             </Box>
             <Box top="m">
-              <Input size="large" placeholder={intl.formatMessage(messages.PASSWORD)} />
+              <Input
+                size="large"
+                placeholder={intl.formatMessage(messages.PASSWORD)}
+                onChange={this.onChange('password')}
+                value={values.password}
+              />
             </Box>
             <Box top="l" direction="column">
               <Button className={styles.loginButton} type="primary" loading={isSubmitting} size="large">

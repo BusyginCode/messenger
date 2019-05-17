@@ -42,25 +42,28 @@ class Home extends PureComponent {
   }
 
   render() {
+    const side = this.renderSide()
     return (
       <Box className={styles.general}>
-        <Media query="(max-width: 1136px)">
-          {matches =>
-            matches ? (
-              <Drawer
-                placement="left"
-                bodyStyle={{ height: '100%', padding: 0, paddingTop: 24 }}
-                width={300}
-                visible={this.state.sideDrawerOpen}
-                onClose={this.onToggleSideDrawer}
-              >
-                {this.renderSide()}
-              </Drawer>
-            ) : (
-              this.renderSide()
-            )
-          }
-        </Media>
+        <Box>
+          <Media query="(max-width: 1136px)">
+            {matches => {
+              return matches ? (
+                <Drawer
+                  placement="left"
+                  bodyStyle={{ height: '100%', padding: 0, paddingTop: 24 }}
+                  width={300}
+                  visible={this.state.sideDrawerOpen}
+                  onClose={this.onToggleSideDrawer}
+                >
+                  {side}
+                </Drawer>
+              ) : (
+                side
+              )
+            }}
+          </Media>
+        </Box>
         <Channel onToggleSideDrawer={this.onToggleSideDrawer} />
       </Box>
     )

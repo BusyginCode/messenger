@@ -3,7 +3,7 @@ import { injectIntl, defineMessages, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
 import cn from 'classnames'
 import Box from 'components/uikit/box'
-import { Empty } from 'antd'
+import Empty from 'antd/lib/empty'
 
 import styles from './profile.scss'
 
