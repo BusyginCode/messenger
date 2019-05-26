@@ -53,6 +53,7 @@ class TextComponent extends PureComponent {
       inject,
       breakWord,
       danger,
+      color,
       ...props
     } = this.props
 
@@ -66,6 +67,7 @@ class TextComponent extends PureComponent {
       [styles[transform]]: !!transform,
       [styles[decoration]]: !!decoration,
       [styles[overflow]]: !!overflow,
+      [styles[color]]: !!color,
       [styles[`l_${lsize}`]]: !!lsize
     })
 

@@ -89,10 +89,6 @@ const createServer = () => async () => {
           res.status(404)
         }
 
-        if (helpers.isHealthCheck) {
-          res.status(200)
-        }
-
         res.send(html)
       }
     } catch (error) {

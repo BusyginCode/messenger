@@ -1,0 +1,5 @@
+﻿{
+  "connectionString": "mongodb://localhost/messenger",
+  "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+  "devApiURL": "http://localhost:4000"
+}

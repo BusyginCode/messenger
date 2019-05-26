@@ -1,12 +1,11 @@
-.siderSearch {
-  border-bottom: 2px solid var(--b-color-body5);
+.nickname {
+  max-width: 150px;
 }
 
-.slide {
-  left: -300px;
-  animation: slide 0.3s forwards;
-}
+.general {
+  padding: var(--b-spacing-l) var(--b-spacing-m);
 
-@keyframes slide {
-  100% { left: 0; }
+  @media (max-width: 1136px) {
+    padding: var(--b-spacing-m);
+  }
 }

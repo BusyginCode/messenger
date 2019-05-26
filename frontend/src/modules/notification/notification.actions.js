@@ -6,14 +6,13 @@ export const hide = createAction('NOTIFICATIONS_HIDE')
 
 export const show = notification => {
   return ({ dispatch }) => {
-    let { duration, id = uniqueId('notification_'), ...data } = notification
-    if (data.type === 'toast') {
-      duration = duration || 5000
-    }
+    let { type = 'success', id = uniqueId('notification_'), duration = 2.5, message = '' } = notification
 
     const uniqueNotification = {
-      ...data,
-      id
+      type,
+      message,
+      id,
+      duration
     }
 
     dispatch(addNotification(uniqueNotification))
@@ -21,7 +20,13 @@ export const show = notification => {
     if (typeof duration === 'number') {
       setTimeout(() => {
         dispatch(hide(id))
-      }, duration)
+      }, duration * 1000)
     }
   }
 }
+
+export const success = notification => show({ ...notification, type: 'success' })
+export const error = notification => show({ ...notification, type: 'error' })
+export const warning = notification => show({ ...notification, type: 'warning' })
+export const info = notification => show({ ...notification, type: 'info' })
+export const loading = notification => show({ ...notification, type: 'loading' })

@@ -1,41 +1,53 @@
 import React, { PureComponent } from 'react'
 import { injectIntl, defineMessages, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
-import cn from 'classnames'
+import { Avatar, Button, Divider } from 'antd'
 import Box from 'components/uikit/box'
-import Empty from 'antd/lib/empty'
+import Text from 'components/uikit/text'
 
 import styles from './profile.scss'
 
 const messages = defineMessages({
-  SEARCH_PLACEHOLDER: {
-    id: 'MESSENGER.HOME.SEARCH_PLACEHOLDER',
-    defaultMessage: 'Enter your friends name'
-  },
-  EMPTY_CHANNELS: {
-    id: 'MESSENGER.HOME.EMPTY_CHANNELS',
-    defaultMessage: 'No channels found'
+  LOGOUT: {
+    id: 'MESSENGER.HOME.PROFILE.LOGOUT',
+    defaultMessage: 'Logout'
   }
 })
 
 class Profile extends PureComponent {
   static propTypes = {
     intl: intlShape,
-    tabPosition: PropTypes.string,
-    changeTabPosition: PropTypes.func
+    userAvatar: PropTypes.string,
+    logOut: PropTypes.func,
+    location: PropTypes.object,
+    userNickname: PropTypes.string
   }
 
-  onSearch = value => {}
+  onLogout = () => {
+    const { logOut } = this.props
+    logOut()
+    window.location.assign('/auth')
+  }
 
   render() {
-    const { intl } = this.props
+    const { intl, userAvatar, userNickname } = this.props
+    console.log('userAvatar ', userAvatar)
     return (
-      <Box direction="column" flexGrow={1}>
-        <Box className={cn(styles.siderChannelsList, styles.slide)} flexGrow={1} paddimg="0 m">
-          <Box flexGrow={1} align="center" justify="center">
-            <Empty description={intl.formatMessage(messages.EMPTY_CHANNELS)} />
+      <Box direction="column" flexGrow={1} className={styles.general}>
+        <Box>
+          <Avatar size={64} src={userAvatar} />
+          <Box left="s" direction="column">
+            <Text className={styles.nickname} size="l" overflow="ellipsis">
+              {userNickname}
+            </Text>
+            <Box top="s">
+              <Button type="primary" ghost onClick={this.onLogout}>
+                {intl.formatMessage(messages.LOGOUT)}
+              </Button>
+            </Box>
           </Box>
         </Box>
+        <Divider />
       </Box>
     )
   }

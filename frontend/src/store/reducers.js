@@ -2,17 +2,17 @@ import { reducer as reduxAsyncConnect } from 'redux-connect'
 import { intlReducer } from 'react-intl-redux'
 import { loadingBarReducer } from 'react-redux-loading-bar'
 
-import loadingStatus from 'modules/loading-status'
-import globalError from 'modules/global-error'
 import notification from 'modules/notification'
 import modal from 'modules/modal'
 import auth from 'modules/auth'
+import user from 'modules/user'
+import app from 'modules/app'
 
 export default {
-  loadingStatus,
-  globalError,
   modal,
   auth,
+  user,
+  app,
   notification,
   loadingBar: loadingBarReducer,
   reduxAsyncConnect,

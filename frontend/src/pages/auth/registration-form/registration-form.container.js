@@ -5,10 +5,12 @@ import compose from 'recompose/compose'
 import { withRouter } from 'react-router'
 import Yup from 'yup'
 import { register } from 'modules/auth'
+import { error as errorNotification } from 'modules/notification'
 import RegistrationForm from './registration-form'
 
 const mapDispatchToProps = {
-  register
+  register,
+  errorNotification
 }
 
 const mapStateToProps = state => ({})
@@ -54,6 +56,8 @@ const enhance = compose(
     mapDispatchToProps
   ),
   withFormik({
+    validationSchema,
+    validateOnChange: false,
     mapPropsToValues: () => ({
       nickname: '',
       email: '',
@@ -62,26 +66,16 @@ const enhance = compose(
     }),
     handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
       try {
-        console.log('submit', values)
-        props.register(values)
+        await props.register(values)
         if (props.onSubmitSuccess) {
           props.onSubmitSuccess()
         }
+        props.history.push('/')
       } catch (error) {
-        setErrors({ ...error.errors })
-        if (error.message) {
-          props.show({
-            content: error.message,
-            type: 'toast',
-            intent: 'danger',
-            id: 'REGISTER_FAIL',
-            duration: 5000
-          })
-        }
+        props.errorNotification({ message: error.message })
       }
       setSubmitting(false)
-    },
-    validationSchema: validationSchema
+    }
   })
 )
 

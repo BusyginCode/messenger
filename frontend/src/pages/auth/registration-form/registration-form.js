@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { intlShape, defineMessages } from 'react-intl'
 import Box from 'components/uikit/box'
 import Text from 'components/uikit/text'
-import { Input, Button } from 'antd'
+import Input from 'components/uikit/input'
+import { Button } from 'antd'
+
 import styles from './registration-form.scss'
 
 let Avatar
@@ -45,6 +47,7 @@ class RegistrationForm extends PureComponent {
     handleSubmit: PropTypes.func,
     isSubmitting: PropTypes.bool,
     isValid: PropTypes.bool,
+    errors: PropTypes.object,
     setFieldValue: PropTypes.func,
     values: PropTypes.object,
     onLogin: PropTypes.func
@@ -73,14 +76,14 @@ class RegistrationForm extends PureComponent {
   }
 
   render() {
-    const { intl, handleSubmit, isSubmitting, onLogin, values } = this.props
+    const { intl, handleSubmit, isSubmitting, onLogin, values, errors } = this.props
 
     if (!Avatar && typeof window !== 'undefined') {
       Avatar = require('react-avatar-edit').default
     }
 
     return (
-      <form className={styles.general} onSubmit={handleSubmit} autoComplete="off">
+      <form className={styles.general} onSubmit={handleSubmit}>
         <Box className={styles.formBack} justify="center">
           <Box direction="column" className={styles.form}>
             <Box bottom="m" justify="center">
@@ -102,6 +105,7 @@ class RegistrationForm extends PureComponent {
             </Box>
             <Input
               size="large"
+              errorMessage={errors.email}
               placeholder={intl.formatMessage(messages.EMAIL)}
               onChange={this.onChange('email')}
               value={values.email}
@@ -109,6 +113,7 @@ class RegistrationForm extends PureComponent {
             <Box top="m">
               <Input
                 size="large"
+                errorMessage={errors.nickname}
                 placeholder={intl.formatMessage(messages.NAME)}
                 onChange={this.onChange('nickname')}
                 value={values.nickname}
@@ -117,13 +122,20 @@ class RegistrationForm extends PureComponent {
             <Box top="m">
               <Input
                 size="large"
+                errorMessage={errors.password}
                 placeholder={intl.formatMessage(messages.PASSWORD)}
                 onChange={this.onChange('password')}
                 value={values.password}
               />
             </Box>
             <Box top="l" direction="column">
-              <Button className={styles.loginButton} type="primary" loading={isSubmitting} size="large">
+              <Button
+                htmlType="submit"
+                className={styles.loginButton}
+                type="primary"
+                loading={isSubmitting}
+                size="large"
+              >
                 {intl.formatMessage(messages.SIGN_UP)}
               </Button>
             </Box>

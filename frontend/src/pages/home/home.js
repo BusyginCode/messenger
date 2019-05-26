@@ -31,11 +31,15 @@ class Home extends PureComponent {
   }
 
   renderSide() {
-    const { tabPosition } = this.state
+    const { tabPosition, sideDrawerOpen } = this.state
 
     return (
       <Box className={styles.sider} direction="column" justify="start">
-        {tabPosition === 'channels' ? <Channels /> : <Profile />}
+        {tabPosition === 'channels' ? (
+          <Channels tabPosition={tabPosition} sideDrawerOpen={sideDrawerOpen} />
+        ) : (
+          <Profile tabPosition={tabPosition} sideDrawerOpen={sideDrawerOpen} />
+        )}
         <BottomNav tabPosition={tabPosition} changeTabPosition={this.changeTabPosition} />
       </Box>
     )

@@ -3,6 +3,7 @@ import { hydrate, render } from 'react-dom'
 import { Router } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import 'antd/dist/antd.css'
+import { fetchInitialData } from 'modules/app'
 import Root from './root'
 import apiClient from './store/api-client'
 import configureStore from './store'
@@ -37,7 +38,7 @@ const initClient = async () => {
 
   if (ssrDisabled) {
     try {
-      // await store.dispatch(fetchInitialData())
+      await store.dispatch(fetchInitialData())
     } catch (e) {
       console.warn(e)
     }

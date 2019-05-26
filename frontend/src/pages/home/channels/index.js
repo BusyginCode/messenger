@@ -1,1 +1,1 @@
-export { default } from './channels'
+export { default } from './channels.container'

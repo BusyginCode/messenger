@@ -1,63 +1,61 @@
 import { connect } from 'react-redux'
 import { withFormik } from 'formik'
 import { withRouter } from 'react-router'
+import Yup from 'yup'
 import { injectIntl, defineMessages } from 'react-intl'
 import compose from 'recompose/compose'
-// import { getUserId, getUserName, getUserEmail } from 'modules/user'
-import { getAuthToken, logIn } from 'modules/auth'
-import { show } from 'modules/notification'
+import { logIn } from 'modules/auth'
+import { error as errorNotification } from 'modules/notification'
 import Login from './login-form'
 
-const mapStateToProps = state => ({
-  // nickname: getUserName(state),
-  // userID: getUserId(state),
-  // userEmail: getUserEmail(state),
-  authToken: getAuthToken(state)
-})
-
 const mapDispatchToProps = {
-  logIn,
-  show
+  logIn
 }
 
 const messages = defineMessages({
-  INVALID_CREDENTIALS: {
-    id: 'APEX.AUTH.LOGIN.INVALID_CREDENTIALS',
-    defaultMessage: 'These credentials do not match our records.'
+  ERROR: {
+    id: 'AUTH.LOGIN.ERROR',
+    defaultMessage: 'Something bad happened'
+  },
+  NICKNAME_CHARS: {
+    id: 'AUTH.REGISTER.NICKNAME_CHARS',
+    defaultMessage: 'Nickname required.'
+  },
+  PASSWORD_CHARS: {
+    id: 'AUTH.REGISTER.PASSWORD_CHARS',
+    defaultMessage: 'Password required.'
   }
 })
+
+const validationSchema = props =>
+  Yup.object({
+    nickname: Yup.string().required(props.intl.formatMessage(messages.NICKNAME_CHARS)),
+    password: Yup.string()
+      .min(6, props.intl.formatMessage(messages.PASSWORD_CHARS))
+      .required(props.intl.formatMessage(messages.PASSWORD_CHARS))
+  })
 
 const enhance = compose(
   injectIntl,
   withRouter,
   connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   ),
   withFormik({
-    mapPropsToValues: () => ({ email: '', password: '' }),
+    validationSchema,
     validateOnChange: false,
+    mapPropsToValues: () => ({ nickname: '', password: '' }),
     handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
-      let isError = false
-
       try {
-        props.history.push('/')
         await props.logIn(values)
-      } catch (error) {
-        isError = true
-        if (error.message) {
-          props.show({
-            content: props.intl.formatMessage(messages.INVALID_CREDENTIALS),
-            type: 'toast',
-            intent: 'danger',
-            page: true,
-            id: 'LOGIN_FAIL'
-          })
+        props.history.push('/')
+        if (props.onSubmitSuccess) {
+          props.onSubmitSuccess()
         }
-      }
-
-      if (!isError && props.onSubmitSuccess) {
-        props.onSubmitSuccess()
+      } catch (error) {
+        setErrors({ ...error.errors })
+        errorNotification(props.intl.formatMessage(messages.ERROR))
       }
       setSubmitting(false)
     }

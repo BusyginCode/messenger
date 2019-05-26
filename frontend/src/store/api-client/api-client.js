@@ -1,13 +1,11 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 import get from 'lodash/get'
-import { logOut, refreshToken, getAuthToken } from 'modules/auth'
-
-const getData = (res = {}, returnClearRes) => (res.data !== undefined && !returnClearRes ? res.data : res)
+import { logOut, getAuthToken } from 'modules/auth'
 
 const apiClient = (serverRes, { disableAuthRefreshFlow, returnClearRes } = {}) => {
   const instance = axios.create({
-    baseURL: `https://${process.env.RAZZLE_API_HOST}`,
+    baseURL: `http://${process.env.RAZZLE_API_HOST}`,
     withCredentials: false,
     timeout: 10000
   })
@@ -25,44 +23,12 @@ const apiClient = (serverRes, { disableAuthRefreshFlow, returnClearRes } = {}) =
     }
   })
 
-  let isAuthTokenRefreshFlowStarted = null
-
-  const refreshAuthTokenAndRetry = response => {
-    if (response.config.__isRetryRequest) {
-      return instance.store.dispatch(logOut())
-    }
-
-    response.config.__isRetryRequest = true
-
-    return startRefreshAuthTokenFlow(response)
-  }
-
-  const startRefreshAuthTokenFlow = response => {
-    if (!isAuthTokenRefreshFlowStarted) {
-      isAuthTokenRefreshFlowStarted = instance.store.dispatch(refreshToken(serverRes))
-    }
-
-    return isAuthTokenRefreshFlowStarted
-      .then(() => {
-        const authToken = getAuthToken(instance.store.getState())
-
-        isAuthTokenRefreshFlowStarted = null
-        response.config.headers.Authorization = `Bearer ${authToken}`
-      })
-      .catch(() => {
-        isAuthTokenRefreshFlowStarted = null
-        delete response.config.headers.Authorization
-      })
-  }
-
   instance.interceptors.request.use(config => {
-    if (!disableAuthRefreshFlow) {
-      const state = instance.store.getState()
-      const authToken = getAuthToken(state)
+    const state = instance.store.getState()
+    const authToken = getAuthToken(state)
 
-      if (authToken) {
-        config.headers.common.Authorization = `Bearer ${authToken}`
-      }
+    if (authToken) {
+      config.headers.common.Authorization = `Bearer ${authToken}`
     }
 
     config.metadata = { startTime: new Date() }
@@ -72,13 +38,13 @@ const apiClient = (serverRes, { disableAuthRefreshFlow, returnClearRes } = {}) =
 
   instance.interceptors.response.use(
     async response => {
-      return getData(response.data, returnClearRes)
+      return response.data
     },
     async error => {
       const { response } = error
 
-      if (response && response.status === 401 && !disableAuthRefreshFlow) {
-        await refreshAuthTokenAndRetry(response)
+      if (response && response.status === 401) {
+        await instance.store.dispatch(logOut())
 
         const { data } = await axios(response.config)
 
@@ -86,7 +52,7 @@ const apiClient = (serverRes, { disableAuthRefreshFlow, returnClearRes } = {}) =
           return Promise.reject(data.errors)
         }
 
-        return getData(data, returnClearRes)
+        return data
       }
 
       // eslint-disable-next-line

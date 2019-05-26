@@ -4,6 +4,7 @@ import Auth from 'pages/auth'
 import NotFound from 'pages/notfound'
 
 import AuthRedirect from 'redirects/auth-redirect'
+import LoginRedirect from 'redirects/login-redirect'
 import composeRedirects from 'redirects/compose-redirects'
 
 export default [
@@ -12,7 +13,8 @@ export default [
     routes: [
       {
         path: '/auth',
-        component: Auth
+        component: composeRedirects([LoginRedirect()]),
+        routes: [{ component: Auth }]
       },
       {
         path: '/',
