@@ -11,10 +11,10 @@ function errorHandler(error, getState, lastAction, dispatch) {
 }
 
 const configureStore = (reducers, customMiddlewares = [], { withLoading } = {}) => {
-  return ({ preloadedState = {}, apiClient = {}, addedClients = {} }) => {
+  return ({ preloadedState = {}, apiClient = {}, socket, addedClients = {} }) => {
     const middlewares = [
       reduxCatch(errorHandler),
-      thunk({ client: apiClient, ...addedClients }),
+      thunk({ client: apiClient, socket, ...addedClients }),
       reduxPromiseAction(apiClient, { withLoading, addedClients })
     ]
 

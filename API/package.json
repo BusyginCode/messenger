@@ -22,7 +22,8 @@
     "mongodb": "^3.0.10",
     "mongoose": "^5.1.4",
     "prettier": "^1.17.0",
-    "rootpath": "^0.1.2"
+    "rootpath": "^0.1.2",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",

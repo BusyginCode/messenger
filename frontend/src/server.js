@@ -11,6 +11,7 @@ import { loadOnServer } from 'redux-connect'
 import configureStore from './store'
 import routes from './routes'
 import apiClient from './store/api-client'
+// import socket from './store/socket'
 import Html from './html'
 import Root from './root'
 
@@ -53,6 +54,7 @@ const createServer = () => async () => {
         const store = configureStore({
           preloadedState,
           apiClient: apiClient(res)
+          // socket
         })
         const url = req.originalUrl || req.url
         let location = parseUrl(url)

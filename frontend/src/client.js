@@ -6,6 +6,7 @@ import 'antd/dist/antd.css'
 import { fetchInitialData } from 'modules/app'
 import Root from './root'
 import apiClient from './store/api-client'
+import socket from './store/socket'
 import configureStore from './store'
 import routes from './routes'
 
@@ -18,7 +19,8 @@ const { preloadedState = {} } = window._APP__ || {}
 const client = apiClient()
 const store = configureStore({
   preloadedState,
-  apiClient: client
+  apiClient: client,
+  socket
 })
 
 const helpers = {}

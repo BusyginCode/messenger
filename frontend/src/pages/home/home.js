@@ -36,7 +36,11 @@ class Home extends PureComponent {
     return (
       <Box className={styles.sider} direction="column" justify="start">
         {tabPosition === 'channels' ? (
-          <Channels tabPosition={tabPosition} sideDrawerOpen={sideDrawerOpen} />
+          <Channels
+            tabPosition={tabPosition}
+            sideDrawerOpen={sideDrawerOpen}
+            onToggleSideDrawer={this.onToggleSideDrawer}
+          />
         ) : (
           <Profile tabPosition={tabPosition} sideDrawerOpen={sideDrawerOpen} />
         )}

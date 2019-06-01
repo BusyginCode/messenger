@@ -25,7 +25,10 @@ class Channels extends PureComponent {
   static propTypes = {
     intl: intlShape,
     searchUsers: PropTypes.func,
+    openChat: PropTypes.func,
+    onToggleSideDrawer: PropTypes.func,
     sideDrawerOpen: PropTypes.string,
+    history: PropTypes.object,
     tabPosition: PropTypes.string
   }
 
@@ -57,13 +60,21 @@ class Channels extends PureComponent {
     this.setState({ search: e.target.value })
   }
 
+  onOpenChat = user => () => {
+    const { openChat, onToggleSideDrawer, history } = this.props
+    openChat(user)
+    this.setState({ users: [] })
+    onToggleSideDrawer()
+    history.push(`/${user.id}`)
+  }
+
   render() {
     const { intl } = this.props
     const { users, search } = this.state
     return (
       <Box direction="column" flexGrow={1}>
         <Box className={styles.siderSearch} padding="m">
-          <Dropdown visible={!!users.length} overlay={<UsersDropdown users={users} />}>
+          <Dropdown visible={!!users.length} overlay={<UsersDropdown openChat={this.onOpenChat} users={users} />}>
             <Search
               placeholder={intl.formatMessage(messages.SEARCH_PLACEHOLDER)}
               onSearch={this.onSearch}

@@ -17,7 +17,7 @@ export default [
         routes: [{ component: Auth }]
       },
       {
-        path: '/',
+        path: '/:id?',
         exact: true,
         component: composeRedirects([AuthRedirect()]),
         routes: [{ component: Home }]

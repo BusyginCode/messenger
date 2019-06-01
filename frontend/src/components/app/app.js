@@ -11,12 +11,18 @@ class App extends PureComponent {
   static propTypes = {
     route: PropTypes.object,
     location: PropTypes.object,
+    connectUserToSocket: PropTypes.func,
     history: PropTypes.object
   }
 
   state = {
     error: null,
     errorInfo: null
+  }
+
+  componentDidMount() {
+    const { connectUserToSocket } = this.props
+    connectUserToSocket()
   }
 
   componentDidCatch(error, errorInfo) {

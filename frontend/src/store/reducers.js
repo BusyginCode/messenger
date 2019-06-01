@@ -6,6 +6,10 @@ import notification from 'modules/notification'
 import modal from 'modules/modal'
 import auth from 'modules/auth'
 import user from 'modules/user'
+import users from 'modules/users'
+import chat from 'modules/chat'
+import globalError from 'modules/global-error'
+import loadingStatus from 'modules/loading-status'
 import app from 'modules/app'
 
 export default {
@@ -13,6 +17,10 @@ export default {
   auth,
   user,
   app,
+  users,
+  chat,
+  globalError,
+  loadingStatus,
   notification,
   loadingBar: loadingBarReducer,
   reduxAsyncConnect,

@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import compose from 'recompose/compose'
 import { withRouter } from 'react-router'
 import { searchUsers } from 'modules/users'
+import { openChat } from 'modules/chat'
 import Channels from './channels'
 
 const mapDispatchToProps = {
-  searchUsers
+  searchUsers,
+  openChat
 }
 
 const enhance = compose(

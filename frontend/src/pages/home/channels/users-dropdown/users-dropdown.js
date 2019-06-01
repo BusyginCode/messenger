@@ -6,13 +6,13 @@ import { Avatar, Divider } from 'antd'
 
 import styles from './users-dropdown.scss'
 
-const UsersPropdown = ({ users }) => {
+const UsersPropdown = ({ users, openChat }) => {
   console.log(users)
   return (
     <Box className={styles.general} direction="column">
       {users.map((user, index) => (
         <Fragment key={user.id}>
-          <Box align="center" padding="s">
+          <Box onClick={openChat(user)} align="center" padding="s">
             <Avatar size="m" src={user.avatar} />
             <Box left="m">
               <Text size="m">{user.nickname}</Text>
@@ -26,7 +26,8 @@ const UsersPropdown = ({ users }) => {
 }
 
 UsersPropdown.propTypes = {
-  users: PropTypes.array
+  users: PropTypes.array,
+  openChat: PropTypes.func
 }
 
 export default UsersPropdown
