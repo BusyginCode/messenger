@@ -14,7 +14,6 @@ const mapAsyncActions = [
       const promises = []
       if (match.params.id) {
         const user = await dispatch(loadUserById(match.params.id))
-        console.log('user ', user)
         await dispatch(loadMessages(getUserId(getState()), match.params.id))
         dispatch(openChat(user))
       }

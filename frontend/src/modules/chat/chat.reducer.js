@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions'
-import { openChat, loadMessages } from './chat.actions'
+import { openChat, loadMessages, sendMessage, receiveMessage } from './chat.actions'
 
 const initialState = {
   openChat: undefined,
@@ -23,10 +23,32 @@ const handlerGetMessages = (state, { payload, meta }) => {
   }
 }
 
+const handlerSendMessages = (state, { payload, meta }) => {
+  return {
+    ...state,
+    messages: {
+      ...state.messages,
+      [meta.recipientId]: state.messages[meta.recipientId] ? [...state.messages[meta.recipientId], payload] : [payload]
+    }
+  }
+}
+
+const handlerReceiveMessages = (state, { payload }) => {
+  return {
+    ...state,
+    messages: {
+      ...state.messages,
+      [payload.senderId]: state.messages[payload.senderId] ? [...state.messages[payload.senderId], payload] : [payload]
+    }
+  }
+}
+
 const reducer = handleActions(
   {
     [openChat]: handlerOpenChat,
-    [loadMessages]: handlerGetMessages
+    [loadMessages]: handlerGetMessages,
+    [sendMessage]: handlerSendMessages,
+    [receiveMessage]: handlerReceiveMessages
   },
   initialState
 )

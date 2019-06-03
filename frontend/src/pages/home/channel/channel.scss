@@ -10,3 +10,9 @@
   padding: var(--b-spacing-m);
   border-bottom: 2px solid var(--b-color-body5);
 }
+
+.contentHeaderInfo {
+  @media (max-width: 1136px) {
+    padding: 0 var(--b-spacing-m);
+  }
+}

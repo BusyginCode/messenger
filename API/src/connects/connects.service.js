@@ -10,13 +10,13 @@ module.exports = {
 };
 
 async function getByUserId(userId) {
-  const connection = await Connects.findOne({ userId });
-  return connection;
+  const connections = await Connects.find({ userId });
+  return connections;
 }
 
 async function getBySocketId(socketId) {
-  const connection = await Connects.findOne({ socketId });
-  return connection;
+  const connections = await Connects.find({ socketId });
+  return connections;
 }
 
 async function addConnection(socketId, userId) {

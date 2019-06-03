@@ -19,7 +19,14 @@ async function getByRecipientId(recipientId) {
 }
 
 async function getChannelMessages(senderId, recipientId) {
-  const messages = await Messages.find({ recipientId, senderId });
+  const senderMessages = await Messages.find({ recipientId, senderId });
+  const recipientMessages = await Messages.find({
+    recipientId: senderId,
+    senderId: recipientId
+  });
+  const messages = [...senderMessages, ...recipientMessages].sort(
+    (a, b) => a.timestamp - b.timestamp
+  );
   return messages;
 }
 
@@ -32,4 +39,5 @@ async function addMessage({ text, senderId, recipientId }) {
   };
   const message = new Messages(newMessage);
   await message.save();
+  return message;
 }

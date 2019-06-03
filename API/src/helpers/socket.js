@@ -5,14 +5,14 @@ const Messages = require("src/messages/messages.service");
 const socketHandler = io => {
   io.on("connection", function(socket) {
     socket.on("user login", async function(userId) {
-      const currentConnect = await Connects.getBySocketId(socket.id);
-      if (!currentConnect) {
+      const currentConnects = await Connects.getBySocketId(socket.id);
+      if (!currentConnects.length) {
         Connects.addConnection(socket.id, userId);
       }
     });
 
     socket.on("user logout", function(userId) {
-      Connects.removeConnectionByUserId(userId);
+      Connects.removeConnectionBySocketId(socket.id);
     });
 
     socket.on("disconnect", function(userId) {
@@ -20,21 +20,23 @@ const socketHandler = io => {
     });
 
     socket.on("send-message", async function(senderId, recipientId, msg) {
-      const onlineRecipient = await Connects.getByUserId(recipientId);
+      const onlineRecipients = await Connects.getByUserId(recipientId);
       const senderUser = await Users.getById(senderId);
 
       if (senderUser) {
-        const message = {
+        const newMessage = {
           text: msg,
           senderId,
           recipientId
         };
 
-        if (onlineRecipient && senderUser) {
-          io.to(onlineRecipient.socketId).emit("receive message", message);
-        }
+        const message = await Messages.addMessage(newMessage);
 
-        Messages.addMessage(message);
+        if (onlineRecipients.length && senderUser) {
+          onlineRecipients.forEach(c => {
+            io.to(c.socketId).emit("receive message", message);
+          });
+        }
       }
     });
   });

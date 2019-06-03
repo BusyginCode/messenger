@@ -2,23 +2,41 @@ import React, { PureComponent } from 'react'
 import { injectIntl, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
 import Media from 'react-media'
-import { Empty, Button, Avatar } from 'antd'
+import { Empty, Button, Avatar, Input } from 'antd'
 import Box from 'components/uikit/box'
 import Text from 'components/uikit/text'
 import Message from './message'
 
 import styles from './channel.scss'
 
+const { TextArea } = Input
+
 class Channel extends PureComponent {
   static propTypes = {
     intl: intlShape,
     currentChat: PropTypes.object,
     messages: PropTypes.array,
+    sendMessage: PropTypes.func,
     onToggleSideDrawer: PropTypes.func
+  }
+
+  state = {
+    newMessage: ''
+  }
+
+  onChangeMessage = e => {
+    this.setState({ newMessage: e.target.value })
+  }
+
+  onSubmitMessage = () => {
+    const { sendMessage, currentChat } = this.props
+    sendMessage(this.state.newMessage, currentChat.id)
+    this.setState({ newMessage: '' })
   }
 
   render() {
     const { onToggleSideDrawer, currentChat, messages = [] } = this.props
+    const { newMessage } = this.state
     console.log('chnnel ', currentChat, messages)
     return (
       <Box className={styles.content} direction="column">
@@ -31,7 +49,7 @@ class Channel extends PureComponent {
             }
           </Media>
           {currentChat && (
-            <Box align="center" padding="0 l">
+            <Box align="center" className={styles.contentHeaderInfo}>
               <Avatar size={84} src={currentChat.avatar} />
               <Box left="m">
                 <Text size="xl">{currentChat.nickname}</Text>
@@ -48,13 +66,25 @@ class Channel extends PureComponent {
           </Box>
         )}
         {currentChat && (
-          <Box direction="column">
-            <Box>
+          <Box direction="column" flexGrow={1}>
+            <Box direction="column" flexGrow={1} padding="0 m">
               {messages.map(m => (
                 <Message key={m.id} message={m} />
               ))}
             </Box>
-            <Box>input</Box>
+            <Box align="start">
+              <TextArea
+                value={newMessage}
+                onChange={this.onChangeMessage}
+                placeholder="Write a Message"
+                autosize={{ minRows: 2, maxRows: 6 }}
+              />
+              <Box left="s" right="m">
+                <Button type="primary" icon="download" size="large" onClick={this.onSubmitMessage}>
+                  Send
+                </Button>
+              </Box>
+            </Box>
           </Box>
         )}
       </Box>

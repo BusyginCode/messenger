@@ -4,6 +4,7 @@ import LoadingBar from 'react-redux-loading-bar'
 import renderRoutes from 'react-router-config/renderRoutes'
 import Notifications from '../notifications'
 import ErrorMessage from './error-message'
+import Socket from '../socket'
 
 import styles from './app.scss'
 
@@ -47,6 +48,7 @@ class App extends PureComponent {
         <main id="content" className={styles.content}>
           {this.getErrorMessage() || renderRoutes(route.routes)}
         </main>
+        <Socket />
       </div>
     )
   }

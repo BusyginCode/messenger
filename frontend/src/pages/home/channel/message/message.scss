@@ -1,0 +1,18 @@
+.text {
+  padding: 16px;
+  background-color: rgba(24, 144, 255, 0.3);
+  border-radius: 25px;
+  width: 100%;
+}
+
+.container {
+  flex-direction: column;
+  max-width: 50%;
+  margin-right: 8px;
+  align-items: flex-end;
+}
+
+.generalDate {
+  font-size: 10px;
+  margin-right: 20px;
+}

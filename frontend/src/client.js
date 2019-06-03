@@ -20,7 +20,9 @@ const client = apiClient()
 const store = configureStore({
   preloadedState,
   apiClient: client,
-  socket
+  addedClients: {
+    socket
+  }
 })
 
 const helpers = {}
