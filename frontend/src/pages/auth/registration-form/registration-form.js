@@ -122,6 +122,7 @@ class RegistrationForm extends PureComponent {
             <Box top="m">
               <Input
                 size="large"
+                type="password"
                 errorMessage={errors.password}
                 placeholder={intl.formatMessage(messages.PASSWORD)}
                 onChange={this.onChange('password')}

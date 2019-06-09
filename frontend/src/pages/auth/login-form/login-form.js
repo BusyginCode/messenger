@@ -67,6 +67,7 @@ class LoginForm extends PureComponent {
                 onChange={this.onChange('password')}
                 size="large"
                 name="password"
+                type="password"
                 placeholder={intl.formatMessage(messages.PASSWORD)}
               />
             </Box>

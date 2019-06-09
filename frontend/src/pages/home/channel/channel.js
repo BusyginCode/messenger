@@ -16,12 +16,36 @@ class Channel extends PureComponent {
     intl: intlShape,
     currentChat: PropTypes.object,
     messages: PropTypes.array,
+    haveContact: PropTypes.bool,
     sendMessage: PropTypes.func,
+    readMessages: PropTypes.func,
+    isUnread: PropTypes.bool,
+    addContact: PropTypes.func,
+    location: PropTypes.object,
     onToggleSideDrawer: PropTypes.func
   }
 
+  messengerRef = React.createRef()
+
   state = {
     newMessage: ''
+  }
+
+  componentDidMount() {
+    if (this.messengerRef && this.messengerRef.current) {
+      this.messengerRef.current.scrollTop = this.messengerRef.current.scrollHeight
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { readMessages, currentChat } = this.props
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.messengerRef.current.scrollTop = this.messengerRef.current.scrollHeight
+      readMessages(currentChat.id)
+    }
+    if (prevProps.messages.length < this.props.messages.length) {
+      readMessages(currentChat.id)
+    }
   }
 
   onChangeMessage = e => {
@@ -29,15 +53,18 @@ class Channel extends PureComponent {
   }
 
   onSubmitMessage = () => {
-    const { sendMessage, currentChat } = this.props
+    const { sendMessage, currentChat, haveContact, addContact } = this.props
     sendMessage(this.state.newMessage, currentChat.id)
+    if (!haveContact) {
+      addContact(currentChat.id)
+    }
     this.setState({ newMessage: '' })
   }
 
   render() {
     const { onToggleSideDrawer, currentChat, messages = [] } = this.props
     const { newMessage } = this.state
-    console.log('chnnel ', currentChat, messages)
+
     return (
       <Box className={styles.content} direction="column">
         <Box align="center" className={styles.contentHeader}>
@@ -67,11 +94,13 @@ class Channel extends PureComponent {
         )}
         {currentChat && (
           <Box direction="column" flexGrow={1}>
-            <Box direction="column" flexGrow={1} padding="0 m">
-              {messages.map(m => (
-                <Message key={m.id} message={m} />
-              ))}
-            </Box>
+            <div ref={this.messengerRef} className={styles.messagesContainer}>
+              <Box direction="column" flexGrow={1} padding="0 m">
+                {messages.map(m => (
+                  <Message key={m.id} message={m} />
+                ))}
+              </Box>
+            </div>
             <Box align="start">
               <TextArea
                 value={newMessage}

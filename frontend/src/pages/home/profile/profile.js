@@ -31,7 +31,6 @@ class Profile extends PureComponent {
 
   render() {
     const { intl, userAvatar, userNickname } = this.props
-    console.log('userAvatar ', userAvatar)
     return (
       <Box direction="column" flexGrow={1} className={styles.general}>
         <Box>

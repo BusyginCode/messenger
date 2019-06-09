@@ -7,12 +7,11 @@ import { Avatar, Divider } from 'antd'
 import styles from './users-dropdown.scss'
 
 const UsersPropdown = ({ users, openChat }) => {
-  console.log(users)
   return (
     <Box className={styles.general} direction="column">
       {users.map((user, index) => (
         <Fragment key={user.id}>
-          <Box onClick={openChat(user)} align="center" padding="s">
+          <Box onClick={openChat(user)} align="center" padding="s" className={styles.item}>
             <Avatar size="m" src={user.avatar} />
             <Box left="m">
               <Text size="m">{user.nickname}</Text>

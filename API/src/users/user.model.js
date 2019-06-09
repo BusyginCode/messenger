@@ -7,7 +7,7 @@ const schema = new Schema({
   hash: { type: String, required: true },
   avatar: { type: String },
   createdDate: { type: Date, default: Date.now },
-  chats: { type: Array, required: true, default: [] }
+  contacts: { type: Array, required: true, default: [] }
 });
 
 schema.set("toJSON", { virtuals: true });

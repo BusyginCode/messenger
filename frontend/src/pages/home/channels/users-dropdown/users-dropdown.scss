@@ -7,3 +7,11 @@
 .divider {
   margin: 0;
 }
+
+.item {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

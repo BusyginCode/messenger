@@ -10,3 +10,30 @@
 @keyframes slide {
   100% { left: 0; }
 }
+
+.divider {
+  margin: 0;
+}
+
+.contact {
+  cursor: pointer;
+
+  &.active {
+    background-color: rgba(24, 144, 255, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba(24, 144, 255, 0.1);
+  }
+}
+
+.removeChat {
+  background-color: transparent;
+}
+
+.unread {
+  background: #f5222d;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}

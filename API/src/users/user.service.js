@@ -12,6 +12,9 @@ module.exports = {
   create,
   update,
   searchByNickname,
+  getContacts,
+  addContact,
+  removeContact,
   delete: _delete
 };
 
@@ -86,6 +89,48 @@ async function update(id, userParam) {
   Object.assign(user, userParam);
 
   await user.save();
+}
+
+async function addContact({ userId, contactId }) {
+  const user = await User.findById(userId);
+  const contact = await User.findById(contactId);
+
+  // validate
+  if (!user) throw new Error("User not found");
+  if (!contact) throw new Error("Contact not found");
+
+  user.contacts = [contactId, ...user.contacts.filter(c => c !== contactId)];
+  contact.contacts = [userId, ...contact.contacts.filter(c => c !== userId)];
+
+  await user.save();
+  await contact.save();
+
+  return contact;
+}
+
+async function removeContact({ userId, contactId }) {
+  const user = await User.findById(userId);
+  const contact = await User.findById(contactId);
+
+  // validate
+  if (!user) throw new Error("User not found");
+  if (!contact) throw new Error("Contact not found");
+
+  user.contacts = user.contacts.filter(c => c !== contactId);
+  contact.contacts = contact.contacts.filter(c => c !== userId);
+
+  await user.save();
+  await contact.save();
+}
+
+async function getContacts(id) {
+  const user = await User.findById(id);
+  const contacts = [];
+  for (let i of user.contacts) {
+    contacts.push(await User.findById(i));
+  }
+
+  return contacts;
 }
 
 async function _delete(id) {

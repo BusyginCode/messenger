@@ -1,32 +1,30 @@
 import { handleActions } from 'redux-actions'
-import { addContact, removeContact } from 'modules/contacts'
-import { loadUser } from './user.actions'
+import { loadContacts, addContact, removeContact } from './contacts.actions'
 
 const initialState = {
-  isLoggedIn: false
+  list: []
 }
 
-const handlerLoadUser = (state, { payload }) => ({
+const handlerLoadContacts = (state, { payload }) => ({
   ...state,
-  ...payload,
-  isLoggedIn: true
+  list: payload
 })
 
 const handlerAddContact = (state, { payload }) => {
   return {
     ...state,
-    contacts: [payload.id, ...state.contacts]
+    list: [payload, ...state.list]
   }
 }
 
 const handlerRemoveContact = (state, { payload, meta }) => ({
   ...state,
-  contacts: state.contacts.filter(c => c !== meta.contactId)
+  list: state.list.filter(c => c.id !== meta.contactId)
 })
 
 const reducer = handleActions(
   {
-    [loadUser]: handlerLoadUser,
+    [loadContacts]: handlerLoadContacts,
     [addContact]: handlerAddContact,
     [removeContact]: handlerRemoveContact
   },

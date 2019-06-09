@@ -3,6 +3,8 @@ import { getUserId } from 'modules/user'
 
 export const openChat = createAction('CHAT_OPEN_CHAT')
 
+export const closeChat = createAction('CHAT_CLOSE_CHAT')
+
 export const loadMessages = createAction(
   'GET_MESSAGES',
   (senderId, recipientId) => async ({ dispatch, client }) => client.get(`/messages/${senderId}/${recipientId}`),
@@ -22,3 +24,5 @@ export const sendMessage = createAction(
 export const receiveMessage = createAction('RECEIVE_MESSAGE', msg => async ({ dispatch }) => {
   return msg
 })
+
+export const readMessages = createAction('CHAT_READ_MESSAGES')

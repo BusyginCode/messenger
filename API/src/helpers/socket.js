@@ -39,6 +39,27 @@ const socketHandler = io => {
         }
       }
     });
+
+    socket.on("add-contact", async function(userId) {
+      const onlineUsers = await Connects.getByUserId(userId);
+      console.log("add-contact", onlineUsers);
+
+      if (onlineUsers.length) {
+        onlineUsers.forEach(c => {
+          io.to(c.socketId).emit("add-contact");
+        });
+      }
+    });
+
+    socket.on("remove-contact", async function(userId) {
+      const onlineUsers = await Connects.getByUserId(userId);
+      console.log("remove-contact", onlineUsers);
+      if (onlineUsers.length) {
+        onlineUsers.forEach(c => {
+          io.to(c.socketId).emit("remove-contact");
+        });
+      }
+    });
   });
 };
 

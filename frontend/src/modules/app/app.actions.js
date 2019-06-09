@@ -1,5 +1,6 @@
 import cookies from 'utils/cookies'
 import { loadUser, getUserId } from 'modules/user'
+import { loadContacts } from 'modules/contacts'
 import { setTokens, getAuthToken } from 'modules/auth'
 
 export const fetchInitialData = ({ req, res } = {}) => async ({ dispatch, socket }) => {
@@ -14,6 +15,7 @@ export const fetchInitialData = ({ req, res } = {}) => async ({ dispatch, socket
 
   if (authToken) {
     const { id } = await dispatch(loadUser())
+    await dispatch(loadContacts())
     socket.emit('user login', id)
   }
 }

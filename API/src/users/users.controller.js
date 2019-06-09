@@ -5,6 +5,9 @@ const userService = require("./user.service");
 // routes
 router.post("/login", authenticate);
 router.post("/register", register);
+router.get("/contacts", getContacts);
+router.post("/addContact", addContact);
+router.post("/deleteContact", removeContact);
 router.get("/", getAll);
 router.get("/me", getCurrent);
 router.get("/:id", getById);
@@ -29,6 +32,27 @@ function register(req, res, next) {
   userService
     .create(req.body)
     .then(() => res.json({}))
+    .catch(err => next(err));
+}
+
+function addContact(req, res, next) {
+  userService
+    .addContact(req.body)
+    .then(contact => res.json(contact))
+    .catch(err => next(err));
+}
+
+function removeContact(req, res, next) {
+  userService
+    .removeContact(req.body)
+    .then(() => res.json({}))
+    .catch(err => next(err));
+}
+
+function getContacts(req, res, next) {
+  userService
+    .getContacts(req.user.sub)
+    .then(users => res.json(users))
     .catch(err => next(err));
 }
 
